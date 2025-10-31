@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 # Streamlit general settings
 st.set_page_config(page_title="X-Ray Hole Detection (Fourier)", layout="wide")
-st.title("🔬 X-Ray Hole Detection using Fourier Transform")
+st.title("X-Ray Hole Detection using Fourier Transform")
 st.markdown("A classic image processing tool for defect detection, leveraging the frequency domain (high frequencies = edges/defects).")
 
 # -----------------------------------------------------------------
@@ -80,7 +80,7 @@ def fourier_defect_detection(image_array, cutoff_radius, threshold):
 
 # Sidebar for parameters
 with st.sidebar:
-    st.header("⚙️ Processing Parameters")
+    st.header("Processing Parameters")
     # File upload
     uploaded_file = st.file_uploader("Select an X-ray image to upload (JPG/PNG)", type=["jpg", "png", "jpeg"])
     
@@ -101,7 +101,7 @@ with st.sidebar:
     )
     
     st.markdown("---")
-    st.info("💡 Defects appear as sharp changes and are therefore highlighted by high frequencies.")
+    st.info("Defects appear as sharp changes and are therefore highlighted by high frequencies.")
 
 if uploaded_file is not None:
     # Load the image
@@ -111,7 +111,7 @@ if uploaded_file is not None:
     # Perform detection
     result_img, magnitude, defect_highlight, binary_img, num_defects = fourier_defect_detection(img, cutoff_radius, threshold)
 
-    st.success(f"✅ Found **{num_defects}** potential defects.")
+    st.success(f"Found **{num_defects}** potential defects.")
 
     # Display results
     col1, col2 = st.columns(2)
